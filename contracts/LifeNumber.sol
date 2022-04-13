@@ -27,10 +27,6 @@ contract LifeNumber {
       require(msg.value == fee);
    } 
 
-   function fallback() public returns(uint[] memory) {   // receive
-      return _rollball();
-   }
-
 
    // Run numbers
    function _rollball() private view returns (uint[] memory) {
