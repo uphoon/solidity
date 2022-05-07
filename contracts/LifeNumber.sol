@@ -12,7 +12,7 @@ contract LifeNumber {
    uint fee = 1 ether;
    //uint randNonce = 0;
    //uint[] numbers ;
-   //mapping(address => uint8[]) numbers;
+   //mapping(address => uint8[]) numbers; 
    
 
    constructor() {
@@ -21,10 +21,12 @@ contract LifeNumber {
 
 
 
-   function getNumbers() external payable {
+   function getNumbers() external view returns(uint[] memory) {
 
       //TODO : payable 
-      require(msg.value == fee);
+      //require(msg.value == fee);
+
+      return _rollball();
    } 
 
 
@@ -48,7 +50,7 @@ contract LifeNumber {
 
    // Check the same number in numbers[]
    function _isPutNumber(uint[] memory _nums, uint _n) private pure returns (bool) {
-      bool r = false;
+      bool r = false;   
       for(uint i = 0; i < _nums.length; i++){
          if(_n == _nums[i] ){
             r = true;
